@@ -1,0 +1,1 @@
+ajaxManager.popin("a#avis_button_how_do_rates_work");

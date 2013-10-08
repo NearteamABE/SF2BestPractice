@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <!-- script -->
+        <parameter key="nearteam_core.script.base.class">Nearteam\CoreBundle\Command\BaseScript</parameter>
+    </parameters>
+
+    <services>
+        <service id="nearteam_core.script.base" class="%nearteam_core.script.base.class%" abstract="true">
+            <call method="setLogger">
+                 <argument type="service" id="logger" />
+            </call>
+            <call method="setLockDirectory">
+                 <argument>%kernel.root_dir%/../app/lock</argument>
+            </call>
+        </service>
+    </services>
+</container>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+## Requirements
+
+Using the template requires a range of PEAR packages present. They can be
+installed as follows:
+
+sudo pear upgrade-all
+
+
+sudo pear channel-discover pear.phing.info
+sudo pear channel-discover pear.pdepend.org
+sudo pear channel-discover pear.phpmd.org
+sudo pear channel-discover pear.phpunit.de
+sudo pear channel-discover components.ez.no
+sudo pear channel-discover pear.symfony-project.com
+sudo pear channel-discover pear.docblox-project.org
+sudo pear channel-discover pear.phing.info
+
+sudo pear install phing/phing
+sudo pear install -a phpmd/PHP_PMD
+sudo pear install phpunit/phpcpd
+sudo pear install phpunit/phploc
+sudo pear install PHPDocumentor
+sudo pear install PHP_CodeSniffer
+sudo pear install HTTP_Request2
+sudo pear install -a phpunit/PHP_CodeBrowser
+sudo pear install docblox/DocBlox
+sudo pear install phing/phing
+
+-->
+<project name="NEARTEAM-POC" basedir="." default="main">
+
+    <property name="builddir" value="build" />
+    <property name="source" value="src/" />
+
+
+    <!-- ============================================  -->
+    <!-- (DEFAULT) Target: SF2                         -->
+    <!-- ============================================  -->
+
+    <target name="install:vendor" description="Install vendors in vendor dir by fecthing repos">
+        <exec logoutput="true" command="php ${project.basedir}/bin/vendors update" />
+    </target>
+
+    <target name="config:parameters" description="Install parameters file">
+        <copy file="${project.basedir}/installer/parameters.ini-dist" tofile="${project.basedir}/app/config/parameters.ini" overwrite="true">
+<!--            <filterchain>
+                <replacetokens begintoken="%%" endtoken="%%">
+                     MySQL TOKENS
+                    <token key="database_host" value="${db.host}" />
+                    <token key="database_port" value="${db.port}" />
+                    <token key="database_name" value="${db.database}" />
+                    <token key="database_user" value="${db.user}" />
+                    <token key="database_password" value="${db.password}" />
+                </replacetokens>
+            </filterchain>-->
+        </copy>
+    </target>
+
+    <!-- ============================================  -->
+    <!-- (DEFAULT) Target: main                        -->
+    <!-- ============================================  -->
+    <target name="build:test" description="Start analyzing our application">
+        <echo msg="Start Build" />
+
+<!--        <property name="" value="${db.host}" />
+        <property name="db.port" value="master" />
+        <property name="db.database" value="test" />
+        <property name="db.user" value="master" />
+        <property name="db.password" value="test" />
+        <property name="db.port" value="master" />-->
+
+        <phingcall target="config:parameters" />
+        <phingcall target="install:vendor" />
+        <phingCall target="prepare" />
+        <phingCall target="phpunit" />
+        <phingCall target="pdepend" />
+        <phingCall target="phpmd" />
+        <phingCall target="phpcpd" />
+        <!--<phingCall target="phpdoc" />-->
+        <phingCall target="docblox" />
+        <phingCall target="phpcs" />
+        <phingCall target="phploc" />
+        <phingCall target="phpcb" />
+
+        <echo msg="Finished Build" />
+    </target>
+
+    <!-- ============================================  -->
+    <!-- (DEFAULT) Target: prepare                     -->
+    <!-- ============================================  -->
+    <target name="prepare" >
+        <echo msg="Making directory build" />
+
+        <delete dir="${builddir}/api" includeemptydirs="true" verbose="true" failonerror="true" />
+        <delete dir="${builddir}/code-browser" includeemptydirs="true" verbose="true" failonerror="true" />
+        <delete dir="${builddir}/coverage" includeemptydirs="true" verbose="true" failonerror="true" />
+        <delete dir="${builddir}/logs" includeemptydirs="true" verbose="true" failonerror="true" />
+        <delete dir="${builddir}/pdepend" includeemptydirs="true" verbose="true" failonerror="true" />
+
+        <mkdir dir="${builddir}/api"/>
+        <mkdir dir="${builddir}/api/docblox"/>
+        <mkdir dir="${builddir}/code-browser"/>
+        <mkdir dir="${builddir}/coverage"/>
+        <mkdir dir="${builddir}/logs"/>
+        <mkdir dir="${builddir}/pdepend"/>
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: Unit test                             -->
+    <!-- ============================================  -->
+    <target name="phpunit" description="Run unit tests using PHPUnit and generates junit.xml and clover.xml">
+        <echo msg="Beginning of the tests" />
+        <exec passthru="true" command="phpunit -c app/
+                             --log-junit ${builddir}/logs/junit.xml
+                             --coverage-clover ${builddir}/logs/clover.xml
+                             --coverage-html ${builddir}/coverage/"
+            />
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: PHP Depend                            -->
+    <!-- ============================================  -->
+    <target name="pdepend" description="Calculate dependencies of the code base">
+        <exec passthru="true" command="pdepend --jdepend-xml=${builddir}/logs/jdepend.xml
+                               --jdepend-chart=${builddir}/pdepend/dependencies.svg
+                               --overview-pyramid=${builddir}/pdepend/overview-pyramid.svg
+                               --suffix=php
+                               --ignore=vendor
+                               ${source}"
+              escape="false" />
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: PHPMD (Project Mess Detector)         -->
+    <!-- ============================================  -->
+    <target name="phpmd" description="Generate PHP Mess Dectector Report">
+        <echo msg="PHP Mess Detector..." />
+        <exec logoutput="true" command="phpmd ${source} xml codesize,unusedcode --reportfile ${builddir}/logs/pmd.xml" escape="false" />
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: PHPCPD (Copy/Paste Detector)          -->
+    <!-- ============================================  -->
+    <target name="phpcpd" description="Copy/Paste Detection">
+        <echo msg="PHP Copy/Paste detect..." />
+        <exec logoutput="true" command="phpcpd --min-lines 15 --min-tokens 80 --log-pmd ${builddir}/logs/pmd-cpd.xml ${source} " escape="false" />
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: PHPCS (PHP Code Sniffer)              -->
+    <!-- ============================================  -->
+    <target name="phpcs" description="Coding Standards Analysis">
+        <exec passthru="true" command="phpcs --standard=Symfony2
+                             --report=checkstyle
+                             --report-file=${builddir}/logs/checkstyle.xml
+                             --ignore=vendor,Tests,docs,scripts
+                             --extensions=php
+                             ${source}"
+              escape="false" />
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: Docblox                               -->
+    <!-- ============================================  -->
+    <target name="docblox" description="Generate API documentation with DocBlox">
+        <exec passthru="true" command="docblox project:run
+               -d ${source}
+               -t ${builddir}/api/docblox" />
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: PHPLoc (PHP Lines of Code)              -->
+    <!-- ============================================  -->
+    <target name="phploc" description="Generate phploc.csv">
+        <exec passthru="true" command="phploc --log-csv ${builddir}/logs/phploc.csv ${source} " />
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: PHPCB (PHP Code Browser)              -->
+    <!-- ============================================  -->
+    <target name="phpcb" description="Aggregate tool output with PHP_CodeBrowser">
+        <exec command="phpcb --log ${builddir}/logs
+              --ignore build,vendor,tests,docs
+              --source ${source}
+              --output ${builddir}/code-browser" />
+    </target>
+
+</project>

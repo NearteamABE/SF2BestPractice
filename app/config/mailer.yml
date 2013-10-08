@@ -1,0 +1,14 @@
+nearteam_mailer:
+    source: 2
+    defaults:
+        email:
+            default:
+                channel: 'core'
+                from_name: 'Nearteam'
+                from_email: 'noreply@nearteam.fr'
+                reply_to_email: 'noreply@nearteam.fr'
+                delivery_mode: 1
+        sms:
+            default:
+                from_name: 'Nearteam'
+    types:

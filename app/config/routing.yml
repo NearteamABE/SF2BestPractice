@@ -1,0 +1,3 @@
+neartem_user:
+    resource: "@NearteamUserBundle/Resources/config/routing.yml"
+    prefix:   /

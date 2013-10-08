@@ -1,0 +1,181 @@
+
+{% extends "NearteamUserBundle::layout.html.twig" %}
+{% block title%}
+    <title>{{'edit.user.title.key'|trans}}</title>
+{% endblock %}
+
+{% block user %}
+
+<div class="container-fluid">
+<div class="row-fluid">
+		<div class="page-header">
+			<h3>{{'Edit User'|trans}}</h3>
+		</div>
+		<div class="row-fluid">
+        	<form class="wellbeck" id="editForm" action="{{ path('NearteamUserBundle_edit_user', {'idUser': user.idUser}) }}" method="post" >
+            <fieldset class="row-fluid">
+          <div class="span4">
+                        <div class="row-fluid">
+                            <div class="control-group">
+                                <label class="control-label">{{'gender'|trans}}</label>
+                    
+							
+							  {{ form_widget( formUser.gender,{ 'attr': {'class': 'radio inline normal'}}) }}
+                                </label>
+                            </div>
+                            <div>
+                            <label>{{'firstName'|trans}}</label>
+							{{ form_widget(form.firstName,{ 'attr': {'class': 'span12'}}) }}
+							
+                            <span class="errorForm">{{ form_errors(form.firstName) }}</span>
+						   
+                            </div>
+                            <div>
+                            <label>{{'lastName'|trans}}</label>
+                     
+						   {{ form_widget(form.lastName,{ 'attr': {'class': 'span12'}}) }}
+						   
+                            <span class="errorForm">{{ form_errors(form.lastName) }}</span>
+                            </div>
+                            <div>
+                            	<label>{{'Birth Date'|trans}}</label>
+                                <div class="row-fluid">
+                               
+                                    
+                               
+									{{ form_widget(formUser.dateNaissance,{ 'attr': {'class': 'span12'}}) }}
+									<span class="errorForm">{{ form_errors(formUser.dateNaissance) }}</span>
+                                    
+                               
+                              
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span4">
+                        <div class="row-fluid">
+                            <div>
+                            <label>{{'address'|trans}}</label>
+                        
+							{{ form_widget(form.address,{ 'attr': {'class': 'span12'}}) }}
+							
+							<span class="errorForm">{{ form_errors(form.address) }}</span>
+                            </div>
+							<div class="row-fluid">
+							<div class="span6">
+                                	<div>
+                                    <label>{{'country'|trans}}</label>
+
+									{{ form_widget(formUser.country,{ 'attr': {'class': 'span12'}}) }}
+									<span class="errorForm">{{ form_errors(formUser.country) }}</span>
+                                    </div>                           
+                             </div>
+							</div>
+                            <div class="row-fluid">
+						
+                            	<div class="span6">
+                                	<div>
+                                        <label>{{'postalCode'|trans}}</label>
+                                      
+									  	{{ form_widget(formUser.postalCode,{ 'attr': {'class': 'span12 autoCodePostal'}}) }}
+										<span class="errorForm">{{ form_errors(formUser.postalCode) }}</span>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div>
+                            <label>{{'email'|trans}}</label>
+                     
+							{{ form_widget(form.email,{ 'attr': {'class': 'span12'}}) }}
+							
+							<span class="errorForm">{{ form_errors(form.email) }}</span>
+                            </div>
+                            <label>{{'Phone'|trans}}</label>
+                            <div class="row-fluid">
+                                <div class="span4">
+                          
+                                </div>
+                                <div class="span8">
+                                    <div class="row-fluid">
+                                        <div>
+                                 
+										{{ form_widget(form.phone,{ 'attr': {'class': 'span12'}}) }}
+										<span class="errorForm">{{ form_errors(form.phone) }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="span4">
+                        <div class="row-fluid">
+                            <div>
+                            <label>{{'password'|trans}}</label>
+                         
+							{{ form_widget(formPassword.password,{ 'attr': {'class': 'span12'}}) }}
+                           
+							<span class="errorForm">{{ form_errors(formPassword.password) }}</span>
+							</div>
+                            <div>
+                            <label>{{'passwordVerif'|trans}}</label>
+                      
+							{{ form_widget(formPassword.passwordVerif,{ 'attr': {'class': 'span12'}}) }}
+							
+							<span class="errorForm">{{ form_errors(formPassword.passwordVerif) }}</span>
+                            </div>
+                            <div class="row-fluid">
+                            
+                            </div>							
+                            <div class="row-fluid">
+                                
+                            </div>
+                        </div>
+						
+					
+						
+						
+						<input type="hidden" id="birthDate" name="birthDate" value="{{user.birthDate}}"/>
+						{{ form_widget(form._token) }}
+						{{ form_widget(formUser._token) }}
+						{{ form_widget(formPassword._token) }}
+						<input type="hidden" id="Gender" name="dGender" value="{{user.gender}}"/>
+						<input type="hidden" id="year" name="year" value="{{app.getSession().get('user_edit_year')}}"/> 
+						<input type="hidden" id="day" name="day" value="{{app.getSession().get('user_edit_day')}}"/>
+						<input type="hidden" id="month" name="month" value="{{app.getSession().get('user_edit_month')}}"/>
+						<input type="hidden" id="city" name="city" value="{{app.getSession().get('user_edit_city')}}"/>
+						<input type="hidden" id="country" name="country" value="{{app.getSession().get('user_edit_country')}}"/>
+						<input type="hidden" id="site" name="site" value="{{app.getSession().get('user_edit_site')}}"/>
+						<input type="hidden" id="gender_edit" name="gender_edit" value="{{app.getSession().get('user_edit_gender')}}"/>
+				        
+						
+						<div class="row-fluid text_right">
+						<select id="listCitiesHidden" style="display:none"></select>
+                          <input type="button" id="editButton" class="btn btn-success btn_validate_form" value="{{'Save'|trans}}" onClick="verifPassword();"/>
+                        </div>
+						
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+  
+</div>
+
+{% endblock user %} 
+{% block javascripts %}
+ {{ parent() }}
+
+ {% javascripts  
+  
+				'@NearteamUserBundle/Resources/public/js/edit_user.js'
+ %}
+ <script src="{{ asset_url }}" type="text/javascript"></script>
+{% endjavascripts %}
+
+
+{% endblock %}
+
+
+
+

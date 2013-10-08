@@ -1,0 +1,99 @@
+{% extends "NearteamUserBundle::layout.html.twig" %}
+{% block title%}
+    <title>{{'info.user.title.key'|trans}}</title>
+{% endblock %}
+
+{% block user %}
+
+<div class="container-fluid">
+{% if type == 'save' %}
+<div class="alert alert-success">
+				<a class="close" data-dismiss="alert">x</a>
+				<strong>
+				{{'edit_infos.key'|trans}}
+				
+				</strong>
+			</div> 
+{% endif %}			
+			<div class="page-header">
+				<h3>{{'infos.key'|trans}}</h3>
+				
+			</div>
+			<div class="row-fluid">
+				    <div class="row-fluid">
+						<h4 class="span6">{{user.firstName}} {{user.LastName}}
+						({% if user.gender == 'M' %} {{'Homme.key'|trans}} {% else %} {{'Femme.key'|trans}} {% endif  %}) 
+						<img id="lastLoginMarque" src="{{ asset('images/flags/') }}fr.png"/></h4> 
+						<div class="span6">
+							<div class="pull-right">
+
+								<a class="btn btn-small" href="{{ path('NearteamUserBundle_edit_user',{'idUser': user.idUser}) }}">{{'editfiche.button'|trans}}</a>
+								<a class="btn btn-small btn-inverse" href="{{ path('NearteamUserBundle_user_blacklist', {'idUser': user.idUser}) }}">{{'blacklist.boutton'|trans}}</a>
+								<a class="btn btn-small btn-danger" href="{{ path('NearteamUserBundle_user_delete', {'idUser': user.idUser}) }}">{{'delete.boutton'|trans}}</a>
+							</div>
+						</div>
+					</div>
+					</br>
+					</br>
+					<div class="row-fluid">
+						<div class="span12">
+								<div class="row-fluid">
+									<div class="span4">
+										<h6>{{'generalinfo.key'|trans}}</h6>
+											<div class="row-fluid">
+												<div class="span6">
+													<strong>{{'iduser.key'|trans}}:</strong><br>
+													<strong>{{'adress.key'|trans}}:</strong><br><br><br>
+													<strong>{{'phone.key'|trans}}:</strong><br>
+													<input type="hidden" value="{{((user.birthDate|date('U')) - ('0000-00-00'|date('U')))}}" />
+							                         {% if ((user.birthDate|date('U')) - ('0000-00-00'|date('U'))) > 0 %}
+													<strong>{{'birthdate.key'|trans}}:</strong><br>
+													{% endif %}
+												</div>
+												<div class="span6">
+													{{user.idUser}}<br>
+													{{user.address}}<br>
+													{% if user.cp is not empty %}
+													{{user.cp}}
+													{% endif %}
+													{% if country is not empty %}{{country.name}}{% endif %}<br>
+													<!-- ticket 5994 -->
+								 					<a href="#">{{user.phone}}</a><br>
+													<input type="hidden" value="{{((user.birthDate|date('U')) - ('0000-00-00'|date('U')))}}" />
+							                         {% if ((user.birthDate|date('U')) - ('0000-00-00'|date('U'))) > 0 %}
+
+                                                      	{% if user.birthDate is not empty %}														
+													 {{ user.birthDate|date("d/m/Y")|raw  }} 
+
+             
+													{% endif %}
+													{% endif %}
+												</div>
+											</div>
+									</div>
+								</div>
+						</div>
+					</div>
+					
+			</div>
+			</div>
+			</br>
+
+<div class="row-fluid">		
+
+</div>
+
+{% endblock  %}
+{% block javascripts %}
+ {{ parent() }}
+
+ {% javascripts  
+  
+				'@NearteamUserBundle/Resources/public/js/info_user.js'
+				'@NearteamUserBundle/Resources/public/js/list_user.js'
+ %}
+ <script src="{{ asset_url }}" type="text/javascript"></script>
+{% endjavascripts %}
+
+
+{% endblock %}

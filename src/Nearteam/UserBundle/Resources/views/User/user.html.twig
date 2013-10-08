@@ -1,0 +1,11 @@
+<table style="border:none;width:100%">
+	<tr>
+		<td style="border:none">{{'user.form'|trans}}: <a href="{{ path('NearteamUserBundle_user_infos', {'idUser': ligne.idUser,'type': 'show'}) }} ">{{ligne.idUser}}</a> - <span class="name" style="font-weight:bold"><a href="{{ path('NearteamUserBundle_user_infos', {'idUser': ligne.idUser,'type': 'show'}) }} ">{{ligne.firstName|raw|escape}} {{ligne.lastName|raw|escape}}</a></span></td>	
+	</tr>
+	<tr>
+
+		<td style="border:none">{% if ligne.birthDate is not empty and ligne.birthDate != '0000-00-00 00:00:00' and ligne.birthDate != null %}{{'birthdate.key'|trans}}: {{ligne.birthDate|date("d/m/y")|raw  }}{% endif %}</td>
+	
+	</tr>
+</table>
+

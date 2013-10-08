@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+
+        {% block title %}
+		{% endblock %}
+
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+		
+        {% block stylesheets %}
+		
+                    {% stylesheets
+								'@NearteamUserBundle/Resources/public/css/*'
+								'@NearteamUserBundle/Resources/public/css/_backup/*'
+								
+								
+								
+                    %}
+                    <link rel="stylesheet" type="text/css"  href="{{ asset_url }}" />
+                 {% endstylesheets %}   
+        {% endblock stylesheets %}
+		
+					
+		
+    </head>
+    <body>
+	
+		{% block body %}
+		
+			{% block navbar %}
+			
+				<div class="navbar">
+					<div class="navbar-inner">
+					  <div class="container-fluid">
+						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						  <span class="icon-bar"></span>
+						  <span class="icon-bar"></span>
+						  <span class="icon-bar"></span>
+						</a>
+						<a class="brand" href="{{ path('NearteamUserBundle_user') }}" style="padding:1px;"><img style="height:35px;" alt="Nearteam-poc" src="{{ asset('images/') }}nearteam-logo.png"/></a></a>
+						<div style="height: 0px;" class="nav-collapse">
+						  <ul class="nav">
+							<li class="active collapse"><a href="#">{{'Intranet.key'|trans}}</a></li>
+							<li class="collapse"><a href="#">{{'Salesfork.key'|trans}}</a></li>
+							<li class="dropdown menu_services">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#">{{'Users.service'|trans}}<span class="caret" style="font-wight:bold;"></span></a>
+								<ul class="dropdown-menu">
+									<li class="divider"></li>
+									<li><a href="{{ path('NearteamUserBundle_user') }}" >{{'Search.user'|trans}}</a></li>
+								</ul>
+							</li>
+						  </ul>
+						  
+						  <ul class="nav pull-right">
+							<li class="divider-vertical"></li>
+							<li class="dropdown">
+                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="icon-cog icon-white"  style="font-style:italic;" ></span><span class="caret" style="font-wight:bold;"></span></a>
+							  <ul class="dropdown-menu">
+								<li><div class=""><a href="#" class="">{{'logout.key'|trans}}</a></div></li>
+							  </ul>
+							</li>
+						  </ul>
+						  
+						  
+						</div><!-- /.nav-collapse -->
+					  </div>
+					</div><!-- /navbar-inner -->
+				</div>
+
+				<div class="container-fluid">
+
+					<div class="row-fluid container_breadcrumb">
+						<div class="span12">
+							<div class="row-fluid">
+								<ul class="breadcrumb span9">
+								   
+								<li>Service utilisateur</li>
+
+								</ul>
+								<div class="span3">
+									<div class="row-fluid">
+										<div class="span5">
+											<span style="float: left;">
+											{{ "now"|date("d/m/Y") }}
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			{% endblock %}
+			
+			<div class="row-fluid container_body">
+				{% block content %}
+
+				{% endblock %}
+			
+			</div>
+			
+		{% endblock %}
+		
+		<div  id="iframes" style="display: none;">
+			<br /><hr />
+			<iframe name="IFrame" src="" width="100%" height="auto">Votre navigateur n'est pas compatible avec les iframes</iframe>
+		</div>
+		
+		<div class="container-fluid">
+			<footer>
+				<div class="row-fluid">
+					<div class="span12">&copy; 2006 - 2012 Nearteam.fr  </div>
+				</div>
+			</footer>
+		</div>
+    </body>
+	{% block javascripts %}
+	{% javascripts 
+						'@NearteamUserBundle/Resources/public/js/jquery.min.js'
+						'@NearteamUserBundle/Resources/public/js/jquery-ui.min.js'
+						'@NearteamUserBundle/Resources/public/js/jquery-ui-i18n.min.js'
+						'@NearteamUserBundle/Resources/public/js/jquery.jqGrid.min.js'
+		                '@NearteamUserBundle/Resources/public/js/general.js'
+						'@NearteamUserBundle/Resources/public/js/bootstrap-dropdown.js'
+						'@NearteamUserBundle/Resources/public/js/bootstrap-modal.js'
+						'@NearteamUserBundle/Resources/public/js/ajaxManager/ajaxManager.js'
+						'@NearteamUserBundle/Resources/public/js/jscss/jquery-ui-1.8.18.custom.min.js'
+						'@NearteamUserBundle/Resources/public/js/jscss/bootstrap-transition.js'
+						'@NearteamUserBundle/Resources/public/js/jscss/bootstrap-alert.js'
+						'@NearteamUserBundle/Resources/public/js/jscss/bootstrap-scrollspy.js'
+						'@NearteamUserBundle/Resources/public/js/jscss/bootstrap-tab.js'
+						'@NearteamUserBundle/Resources/public/js/jscss/bootstrap-tooltip.js'
+						'@NearteamUserBundle/Resources/public/js/jscss/bootstrap-popover.js'
+						'@NearteamUserBundle/Resources/public/js/jscss/bootstrap-button.js'
+						'@NearteamUserBundle/Resources/public/js/jscss/bootstrap-collapse.js'
+						'@NearteamUserBundle/Resources/public/js/jscss/bootstrap-carousel.js'
+						'@NearteamUserBundle/Resources/public/js/jscss/bootstrap-typeahead.js'
+						'@NearteamUserBundle/Resources/public/js/i18n/grid.locale-fr.js'
+						 
+					 
+					
+           %}
+            <script src="{{ asset_url }}" type="text/javascript"></script>
+			
+			
+        {% endjavascripts %}
+		{% endblock %}
+</html>

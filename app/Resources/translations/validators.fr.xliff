@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>alpha.num.error.msg.key</source>
+                <target>Champs de saisie alphanumérique</target>
+            </trans-unit>
+			<trans-unit id="2">
+                <source>num.error.msg.key</source>
+                <target>Champs de saisie numérique</target>
+            </trans-unit>
+			<trans-unit id="13">
+                <source>tarif.numeric.field.key</source>
+                <target>le Champs tarif est un champs de saisie numérique</target>
+            </trans-unit>
+			<trans-unit id="14">
+                <source>regx.error.msg.key</source>
+                <target>les caractéres autorisés sont : 0-9a-zA-ZÀ-ÿ' '-_)(?!</target>
+            </trans-unit>
+			<trans-unit id="15">
+                <source>regx.internaute.error.msg.key</source>
+                <target>les caractéres autorisés sont : 0-9a-zA-ZÀ-ÿ' '</target>
+            </trans-unit>
+			<trans-unit id="16">
+                <source>regx.internaute.cp.error.msg.key</source>
+                <target>les caractéres autorisés sont : 0-9a-zA-ZÀ-ÿ</target>
+            </trans-unit>
+			<trans-unit id="17">
+                <source>email.error.msg.key</source>
+                <target>Format E-mail invalide</target>
+            </trans-unit>
+			
+			<trans-unit id="18">
+                <source>date.format.error.msg.key</source>
+                <target>La date doit être du format jj/mm/aaaa </target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -1,0 +1,45 @@
+
+{% set countUsers = app.session.get('users_count') %}
+
+
+
+				<div class="row-fluid">
+                    <div id="count_result" class="span6">
+					{% if countUsers > 0 %}
+                        <h3>{{countUsers}} {{'result.key'|trans}}</h3>
+					{% endif %}		
+                    </div>  
+					
+                   <!-- 
+					 ticket 6001
+				   <div class="span6">
+                        <div class="pull-right">
+                            <a href="#" class="btn"><span class="icon-plus-sign"></span>{{'Ajouter une fiche'|trans}}</a>
+                            <a href="#" class="btn"><span class="icon-file"></span> Déclarer un ticket</a>
+                        </div>
+                    </div>-->
+                </div>
+				
+
+				{% if countUsers > 0 %}
+				</br>
+	              {{jqgrid(grid)}}
+               
+				{% elseif countUsers == 0 %}
+				
+                <div id="msg_empty_alert" style="font-size:12px">
+				{{'noresult'|trans}}
+				</div>			
+                {% endif %}				
+				
+				
+				
+		
+
+
+
+
+
+
+
+

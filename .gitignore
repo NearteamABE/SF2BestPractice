@@ -1,0 +1,28 @@
+# Bootstrap
+app/bootstrap*
+
+# Symfony directories
+vendor/*
+*/logs/*
+*/cache/*
+web/uploads/*
+web/bundles/*
+
+# Configuration files
+app/config/parameters.ini
+/nbproject
+composer.phar
+composer.lock
+
+#sql parts
+installer/sql/referentiel_data.sql
+
+# Netbeans files
+.buildpath
+.project
+.settings/*
+
+# Web files
+web/*.xls
+web/css
+web/js

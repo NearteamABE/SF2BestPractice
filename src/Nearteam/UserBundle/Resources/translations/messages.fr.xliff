@@ -1,0 +1,423 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body> 
+            <trans-unit id="1">
+                <source>user.grid</source>
+                <target>Utilisateur</target>
+            </trans-unit>
+			
+			<trans-unit id="2">
+                <source>coordonnees.grid</source>
+                <target>COORDONNEES</target>
+            </trans-unit>
+			
+			<trans-unit id="3">
+                <source>mdp.grid</source>
+                <target>MOT DE PASSE</target>
+            </trans-unit>
+			<trans-unit id="5">
+                <source>codepostal.grid</source>
+                <target>CODE POSTAL</target>
+            </trans-unit>
+			
+			<trans-unit id="6">
+                <source>dates.grid</source>
+                <target>DATES</target>
+            </trans-unit>
+			
+			<trans-unit id="7">
+                <source>mail.form</source>
+                <target>Email utilisateur</target>
+            </trans-unit>
+			
+			<trans-unit id="8">
+                <source>nom.form</source>
+                <target>Nom</target>
+            </trans-unit>
+			
+			<trans-unit id="9">
+                <source>prenom.form</source>
+                <target>Prénom</target>
+            </trans-unit>
+			
+			<trans-unit id="10">
+                <source>cp.form</source> 
+                <target>CP</target>
+            </trans-unit>
+			
+			<trans-unit id="11">
+                <source>city.form</source>
+                <target>Ville</target>
+            </trans-unit>
+			
+			<trans-unit id="12">
+                <source>user.form</source>
+                <target>ID Utilisateur</target>
+            </trans-unit>
+			
+			<trans-unit id="13">
+                <source>info.user.title.key</source>
+                <target>Informations Utilisateur</target>
+            </trans-unit>
+			
+			<trans-unit id="14">
+                <source>phone.form</source>
+                <target>Tél utilisateur</target>
+            </trans-unit>
+			
+			<trans-unit id="15">
+                <source>iduser.key</source>
+                <target>Identifiant utilisateur</target>
+            </trans-unit>
+			
+			<trans-unit id="16">
+                <source>edit.user.title.key</source>
+                <target>Edition utilisateur</target>
+            </trans-unit>
+			
+			
+			<trans-unit id="17">
+                <source>filter.boutton</source>
+                <target>Filtrer</target>
+            </trans-unit>
+			
+			<trans-unit id="18">
+                <source>result.key</source>
+                <target>Résultats correspondent à vos critères</target>
+            </trans-unit>
+			
+			<trans-unit id="19">
+                <source>addfiche.key</source>
+                <target>Add fiche</target>
+            </trans-unit>
+			<trans-unit id="25">
+                <source>phone.grid</source>
+                <target>Tél</target>
+            </trans-unit>
+			
+			
+			<trans-unit id="30">
+                <source>statut.grid</source>
+                <target>Statut</target>
+            </trans-unit>
+			
+			<trans-unit id="31">
+                <source>note.grid</source>
+                <target>Note/Avis</target>
+            </trans-unit>
+			
+			<trans-unit id="32">
+                <source>actions.grid</source>
+                <target>Actions</target>
+            </trans-unit>
+			
+			
+			
+			
+			
+			<trans-unit id="34">
+                <source>infos.key</source>
+                <target>Informations utilisateur</target>
+            </trans-unit>
+			
+			<trans-unit id="35">
+                <source>generalinfo.key</source>
+                <target>Infos générales</target>
+            </trans-unit>
+			
+			<trans-unit id="36">
+                <source>generalinfo.key</source>
+                <target>Infos générales</target>
+            </trans-unit>
+			
+			<trans-unit id="37">
+                <source>adress.key</source>
+                <target>Adresse</target>
+            </trans-unit>
+			
+			<trans-unit id="38">
+                <source>phone.key</source>
+                <target>Téléphone</target>
+            </trans-unit>
+			
+			<trans-unit id="39">
+                <source>birthdate.key</source>
+                <target>Date de naissance</target>
+            </trans-unit>
+			
+			<trans-unit id="40">
+                <source>infoscp.key</source>
+                <target>Infos compte portail</target>
+            </trans-unit>
+			
+			<trans-unit id="41">
+                <source>inscription.key</source>
+                <target>Inscription sur portail</target>
+            </trans-unit>
+			
+			<trans-unit id="42">
+                <source>inscriptiondate.key</source>
+                <target>Date d'inscription</target>
+            </trans-unit>
+			
+			<trans-unit id="43">
+                <source>lastmodification.key</source>
+                <target>Dernière modification</target>
+            </trans-unit>
+			
+			<trans-unit id="44">
+                <source>password.key</source>
+                <target>Mot de passe</target>
+            </trans-unit>
+			
+			<trans-unit id="45">
+                <source>changepassword.key</source>
+                <target>Changer de mot de passe</target>
+            </trans-unit>
+			
+			
+			
+			
+			
+			<trans-unit id="50">
+                <source>editfiche.button</source>
+                <target>Editer la fiche</target>
+            </trans-unit>
+			
+			
+			<trans-unit id="51">
+                <source>blacklist.boutton</source>
+                <target>Blacklister</target>
+            </trans-unit>
+			
+			<trans-unit id="52">
+                <source>delete.boutton</source>
+                <target>Supprimer</target>
+            </trans-unit>
+			<trans-unit id="55">
+                <source>UID.key</source>
+                <target>UID</target>
+            </trans-unit>
+			
+			<trans-unit id="56">
+                <source>the.key</source>
+                <target>le</target>
+            </trans-unit>
+			
+			<trans-unit id="57">
+                <source>to.key</source>
+                <target>à</target>
+            </trans-unit>
+			
+			
+			<trans-unit id="59">
+                <source>noresult</source>
+                <target>Oups ! Aucun résultat ne correspond à vos critères, merci de relancer une recherche en changeant un ou plusieurs paramètres</target>
+            </trans-unit>
+			
+			<trans-unit id="60">
+                <source>gender</source>
+                <target>Sexe</target>
+            </trans-unit>
+			
+			<trans-unit id="61">
+                <source>firstName</source>
+                <target>Nom</target>
+            </trans-unit>
+			
+			<trans-unit id="62">
+                <source>lastName</source>
+                <target>Prénom</target>
+            </trans-unit>
+			
+			<trans-unit id="63">
+                <source>birthDay</source>
+                <target>Date de naissance</target>
+            </trans-unit>
+			
+			<trans-unit id="64">
+                <source>address</source>
+                <target>Adresse</target>
+            </trans-unit>
+			
+			<trans-unit id="65">
+                <source>postalCode</source>
+                <target>CP</target>
+            </trans-unit>
+			
+			<trans-unit id="66">
+                <source>city</source>
+                <target>Ville</target>
+            </trans-unit>
+			
+			<trans-unit id="67">
+                <source>email</source>
+                <target>Email</target>
+            </trans-unit>
+			
+			<trans-unit id="68">
+                <source>Phone</source>
+                <target>Téléphone</target>
+            </trans-unit>
+			
+			<trans-unit id="69">
+                <source>country</source>
+                <target>Pays</target>
+            </trans-unit>
+			
+			<trans-unit id="71">
+                <source>password</source>
+                <target>Mot de passe</target>
+            </trans-unit>
+			
+			<trans-unit id="72">
+                <source>passwordVerif</source>
+                <target>Vérification mot de passe</target>
+            </trans-unit>
+			
+			<trans-unit id="73">
+                <source>Save</source>
+                <target>Enregistrer</target>
+            </trans-unit>
+			
+			<trans-unit id="74">
+                <source>edit_infos.key</source>
+                <target>Hooray ! La fiche a bien été mise à jour</target>
+            </trans-unit>
+			
+			 <trans-unit id="75">
+                <source>toutes.form</source>
+                <target>Toutes</target>
+            </trans-unit>
+			
+			<trans-unit id="76">
+                <source>Users.service</source>
+                <target>Service utilisateurs</target>
+            </trans-unit>
+			
+			<trans-unit id="79">
+                <source>Search.user</source>
+                <target>Recherche utilisateur</target>
+            </trans-unit>
+			
+			<trans-unit id="80">
+                <source>Notice list</source>
+                <target>Liste avis</target>
+            </trans-unit>
+			
+			<trans-unit id="81">
+                <source>uid.form</source>
+                <target>UID ou nom Restaurant</target>
+            </trans-unit>
+			<trans-unit id="82">
+                <source>search.user.title.key</source>
+                <target>Recherche utilisateurs</target>
+            </trans-unit>	
+			<trans-unit id="85">
+                <source>Home.key</source>
+                <target>Home</target>
+            </trans-unit>
+			
+			<trans-unit id="86">
+                <source>Recherche.internaute.key</source>
+                <target>Recherche internaute</target>
+            </trans-unit>
+			
+			<trans-unit id="87">
+                <source>Fiche.internaute.key</source>
+                <target>Fiche internaute</target>
+            </trans-unit>
+			
+			<trans-unit id="88">  
+                <source>Edition.internaute.key</source>
+                <target>Edition internaute</target>
+            </trans-unit>
+			
+			<trans-unit id="89"> 
+                <source>Femme.key</source>
+                <target>Femme</target>
+            </trans-unit>
+			<trans-unit id="90"> 
+                <source>Homme.key</source>
+                <target>Homme</target> 
+
+            </trans-unit>
+			<trans-unit id="91"> 
+                <source>a.key</source>
+                <target>à</target> 
+            </trans-unit>
+			<trans-unit id="92"> 
+                <source>tous.form</source>
+                <target>Tous</target> 
+            </trans-unit>
+			
+			<trans-unit id="93"> 
+                <source>langage.key</source>
+                <target>Langue</target> 
+            </trans-unit>
+			
+			<trans-unit id="95"> 
+                <source>Enregister.key</source>
+                <target>La réservation a bien été modifiée</target> 
+            </trans-unit>
+			
+			<trans-unit id="96"> 
+                <source>Enregister.No.key</source>
+                <target>Erreur lors de l'enregistrement</target> 
+            </trans-unit>
+			
+			<trans-unit id="97"> 
+                <source>Verif.type.dispo.key</source>
+                <target>Verfier que tous les champs sont remplis avec les types qui convients</target> 
+            </trans-unit>
+			
+			<trans-unit id="100"> 
+                <source>aucun.key</source>
+                <target>xx</target> 
+            </trans-unit>
+			
+		<trans-unit id="102"> 
+                <source>annuler.key</source>
+                <target>Annuler</target> 
+        </trans-unit>
+		<trans-unit id="103"> 
+                <source>logout.key</source>
+                <target>Déconnexion</target> 
+		</trans-unit>
+		<trans-unit id="109"> 
+                <source>Intranet.key</source>
+                <target>Intranet</target> 
+        </trans-unit>
+		<trans-unit id="110"> 
+                <source>Salesfork.key</source>
+                <target>Salesfork</target> 
+        </trans-unit>
+		<trans-unit id="111"> 
+                <source>lastConnexionDate.key</source>
+                <target>Dernière connexion le</target> 
+        </trans-unit>
+		<trans-unit id="112"> 
+                <source>lastConnexionDate.key</source>
+                <target>Dernière connexion le</target> 
+        </trans-unit>
+		<trans-unit id="113"> 
+                <source>parameters.key</source>
+                <target>Paramètres</target> 
+        </trans-unit>
+		<trans-unit id="114"> 
+                <source>back.admin.help.key</source>
+                <target>Aide Back Admin</target> 
+        </trans-unit>
+		
+		<trans-unit id="115"> 
+                <source>user_id.form</source>
+                <target>ID Utilisateur</target> 
+        </trans-unit>
+		<trans-unit id="116"> 
+                <source>country.form</source>
+                <target>Pays</target> 
+        </trans-unit>
+        </body>
+    </file>
+</xliff>

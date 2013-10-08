@@ -1,0 +1,27 @@
+Nearteam\UserBundle\Entity\User:
+#    see http://symfony.com/doc/current/book/validation.html for further information
+    properties:
+        firstName:
+            - NotBlank: ~ 
+            - Regex:
+                pattern: "/^[0-9a-zA-ZÀ-ÿ' ']+$/"
+                match:   true          
+        lastName:
+            - NotBlank: ~
+            - Regex:
+                pattern: "/^[0-9a-zA-ZÀ-ÿ' ']+$/"
+                match:   true
+        address:
+            - Regex:
+                pattern: "/^[0-9a-zA-ZÀ-ÿ' ']+$/"
+                match:   true
+               
+        email:
+            - NotBlank: ~
+            - Email:
+                message: The email "{{ value }}" is not a valid email.
+               
+        phone:
+            - MaxLength: 9
+     
+            
