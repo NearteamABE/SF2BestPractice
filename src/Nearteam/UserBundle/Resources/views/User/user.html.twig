@@ -1,6 +1,6 @@
 <table style="border:none;width:100%">
 	<tr>
-		<td style="border:none">{{'user.form'|trans}}: <a href="{{ path('NearteamUserBundle_user_infos', {'idUser': ligne.idUser,'type': 'show'}) }} ">{{ligne.idUser}}</a> - <span class="name" style="font-weight:bold"><a href="{{ path('NearteamUserBundle_user_infos', {'idUser': ligne.idUser,'type': 'show'}) }} ">{{ligne.firstName|raw|escape}} {{ligne.lastName|raw|escape}}</a></span></td>	
+		<td style="border:none">{{'user.form'|trans}}: <a href="{{ path('nearteam_user_infos', {'idUser': ligne.idUser,'type': 'show'}) }} ">{{ligne.idUser}}</a> - <span class="name" style="font-weight:bold"><a href="{{ path('nearteam_user_infos', {'idUser': ligne.idUser,'type': 'show'}) }} ">{{ligne.firstName|raw|escape}} {{ligne.lastName|raw|escape}}</a></span></td>	
 	</tr>
 	<tr>
 

@@ -36,7 +36,7 @@ class UserController extends AbstractController
         $grid -> setName('gridpost');
         $grid -> setCaption('list of posts');
         $grid -> setOptions(array('height' => 'auto', 'margin-left' => '20', 'margin-right' => '20', 'rowList' => array(10, 20, 50, 100)));
-        $grid -> setRouteForced($this -> container -> get('router') -> generate('NearteamUserBundle_viewgrid_user'));
+        $grid -> setRouteForced($this -> container -> get('router') -> generate('nearteam_user_viewgrid_user'));
         $grid -> setHideIfEmpty(false);
 
         //MANDATORY
@@ -175,7 +175,7 @@ class UserController extends AbstractController
                 $logManager -> updateUserLog($user, $this->getIdUser());
                 $userBusiness -> userUpdate($valuesUser, $user, $gender);
                 //ticket 6289
-                $url = $this -> generateUrl('NearteamUserBundle_user_infos', array('idUser' => $idUser, 'type' => 'save'));
+                $url = $this -> generateUrl('nearteam_user_infos', array('idUser' => $idUser, 'type' => 'save'));
 
                 return $this -> redirect($url);
             }
@@ -213,7 +213,7 @@ class UserController extends AbstractController
                 $this -> container -> get('logger') -> err('error user blacklistUserAction() blachklist for id = ' . $idUser);
             }
         }
-        $url = $this -> container -> get('router') -> generate('NearteamUserBundle_user');
+        $url = $this -> container -> get('router') -> generate('nearteam_user');
 
         return new RedirectResponse($url);
     }
@@ -239,7 +239,7 @@ class UserController extends AbstractController
             }
         }
 
-        $url = $this -> container -> get('router') -> generate('NearteamUserBundle_user');
+        $url = $this -> container -> get('router') -> generate('nearteam_user');
 
         return new RedirectResponse($url);
     }

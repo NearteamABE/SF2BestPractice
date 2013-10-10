@@ -27,9 +27,9 @@
 						<div class="span6">
 							<div class="pull-right">
 
-								<a class="btn btn-small" href="{{ path('NearteamUserBundle_edit_user',{'idUser': user.idUser}) }}">{{'editfiche.button'|trans}}</a>
-								<a class="btn btn-small btn-inverse" href="{{ path('NearteamUserBundle_user_blacklist', {'idUser': user.idUser}) }}">{{'blacklist.boutton'|trans}}</a>
-								<a class="btn btn-small btn-danger" href="{{ path('NearteamUserBundle_user_delete', {'idUser': user.idUser}) }}">{{'delete.boutton'|trans}}</a>
+								<a class="btn btn-small" href="{{ path('nearteam_user_edit_user',{'idUser': user.idUser}) }}">{{'editfiche.button'|trans}}</a>
+								<a class="btn btn-small btn-inverse" href="{{ path('nearteam_user_blacklist_user', {'idUser': user.idUser}) }}">{{'blacklist.boutton'|trans}}</a>
+								<a class="btn btn-small btn-danger" href="{{ path('nearteam_user_delete_user', {'idUser': user.idUser}) }}">{{'delete.boutton'|trans}}</a>
 							</div>
 						</div>
 					</div>

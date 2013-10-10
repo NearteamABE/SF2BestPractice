@@ -1,30 +1,30 @@
-NearteamUserBundle_user:
+nearteam_user:
     pattern: /
     defaults: { _controller: NearteamUserBundle:User:searchUser }
-NearteamUserBundle_user:
+nearteam_user:
     pattern: /search_user
     defaults: { _controller: NearteamUserBundle:User:searchUser }
-NearteamUserBundle_viewgrid_user:
+nearteam_user_viewgrid_user:
     pattern: /user_list
     defaults: { _controller: NearteamUserBundle:User:userList }
-ajax_form_search:
+nearteam_user_ajax_form_search:
     pattern: /formSearch
     defaults: { _controller: NearteamUserBundle:User:formSearch }
-NearteamUserBundle_user_infos:
+nearteam_user_infos:
     pattern: /infos_user/{idUser}/{type}
     defaults: { _controller: NearteamUserBundle:User:getInfosUser }
-NearteamUserBundle_edit_user:
+nearteam_user_edit_user:
     pattern: /edit_user/{idUser}
     defaults: { _controller: NearteamUserBundle:User:saveUserEdit }
-NearteamUserBundle_changePassword_user:
+nearteam_user_changePassword_user:
     pattern: /changePassword
     defaults: { _controller: NearteamUserBundle:User:changePassword }	
-NearteamUserBundle_user_blacklist:
+nearteam_user_blacklist_user:
     pattern: /blacklist_user/{idUser}
     defaults: { _controller: NearteamUserBundle:User:blacklistUser }
     requirements:
         idUser:  \d+
-NearteamUserBundle_user_delete:
+nearteam_user_delete_user:
     pattern: /delete_user/{idUser}
     defaults: { _controller: NearteamUserBundle:User:deleteUser }
     requirements:
