@@ -61,10 +61,10 @@ class UserController extends AbstractController
         $userConfig = $this -> container -> get('user.grid');
         if ( ! ($request -> isXmlHttpRequest())) {
 		
-            return $this -> container -> get('templating') -> renderResponse('NearteamUserBundle:User:users_list.html.twig', $grid -> render());
+			return $this -> container -> get('templating') -> renderResponse('NearteamUserBundle:User:users_list.html.twig', $grid -> render());
         }
         else {
-
+		
             return ($grid -> render());
         }
     }
@@ -233,6 +233,7 @@ class UserController extends AbstractController
 				/*                 * ******************************** */
 				$user = $this -> container -> get('nearteam_user.business.user') -> load($idUser);
 				$this -> container -> get('nearteam_log.manager.log') -> deleteUserLog($user, $this->getIdUser());
+				$userBusiness -> deleteUser($user);
             } catch (\Exception $e) {
 
                 $this -> container -> get('logger') -> err('deleteUserAction() error user delete for id = ' . $idUser);
@@ -258,6 +259,7 @@ class UserController extends AbstractController
         $data['idUser'] = $request -> getSession() -> get('user_idUser', '');
         $data['phone'] = $request -> getSession() -> get('user_phone', '');
         $data['country'] = $request -> getSession() -> get('user_country', '');
+		$data['_token'] = $request -> getSession() -> get('user_token', '');
         return $data;
     }
 

@@ -110,6 +110,18 @@ class UserManager extends AbstractManager
         
         return $this->repository->findBy($criteria, $order);
     }
+	
+	/**
+     * delete  user
+     * @param User $user
+     */
+    public function deleteUser($user)
+    {
+
+       $user->setIsDeleted(true);
+	   $this -> em -> persist($user);
+	   $this -> em -> flush($user);
+    }
 
 }
 

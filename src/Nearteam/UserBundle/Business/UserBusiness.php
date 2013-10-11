@@ -206,6 +206,16 @@ class UserBusiness
 
         return $this -> userManager -> loadBy($criteria);
     }
+	
+	/**
+     * delete  user
+     * @param User $user
+     */
+    public function deleteUser($user)
+    {
+
+        return $this -> userManager -> deleteUser($user);
+    }
 
 }
 

@@ -25,21 +25,22 @@ class UserGrid
      */
     public function getParameters($filterParameters)
     {
-        $mail = (string) $filterParameters['email'];
+		$mail = (string) $filterParameters['email'];
         $firstName = (string) $filterParameters['firstName'];
         $lastName = (string) $filterParameters['lastName'];
         $cp = (string) $filterParameters['cp'];
         $idUser = (string) $filterParameters['idUser'];
         $phoneNumber = (string) $filterParameters['phone'];
 		$country = (string) $filterParameters['country'];
+		$token = (string) $filterParameters['_token'];
         $mail = $this->request->getSession()->set('user_email', $mail);
-
         $this->request->getSession()->set('user_firstName', $firstName);
         $this->request->getSession()->set('user_lastName', $lastName);
         $this->request->getSession()->set('user_cp', $cp);
   		$this->request->getSession()->set('user_idUser', $idUser);
         $this->request->getSession()->set('user_phone', $phoneNumber);
         $this->request->getSession()->set('user_country', $country);
+		$this->request->getSession()->set('user_token', $token);
     }
 	
 	 /**
